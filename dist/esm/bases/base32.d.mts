@@ -1,0 +1,9 @@
+export declare const base32: import("./base.mjs").Codec;
+export declare const base32upper: import("./base.mjs").Codec;
+export declare const base32pad: import("./base.mjs").Codec;
+export declare const base32padupper: import("./base.mjs").Codec;
+export declare const base32hex: import("./base.mjs").Codec;
+export declare const base32hexupper: import("./base.mjs").Codec;
+export declare const base32hexpad: import("./base.mjs").Codec;
+export declare const base32hexpadupper: import("./base.mjs").Codec;
+export declare const base32z: import("./base.mjs").Codec;

@@ -1,0 +1,164 @@
+{
+  "name": "chel-multiformats",
+  "version": "1.0.0",
+  "description": "Interface for multihash, multicodec, multibase and CID (forked for Chelonia)",
+  "main": "dist/umd/index.cjs",
+  "types": "dist/umd/index.d.cts",
+  "module": "dist/esm/index.mjs",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.mts",
+        "default": "./dist/esm/index.mjs"
+      },
+      "require": {
+        "types": "./dist/umd/index.d.cts",
+        "default": "./dist/umd/index.cjs"
+      }
+    },
+    "./bases/base": {
+      "import": {
+        "types": "./dist/esm/bases/base.d.mts",
+        "default": "./dist/esm/bases/base.mjs"
+      },
+      "require": {
+        "types": "./dist/umd/bases/base.d.cts",
+        "default": "./dist/umd/bases/base.cjs"
+      }
+    },
+    "./bases/base32": {
+      "import": {
+        "types": "./dist/esm/bases/base32.d.mts",
+        "default": "./dist/esm/bases/base32.mjs"
+      },
+      "require": {
+        "types": "./dist/umd/bases/base32.d.cts",
+        "default": "./dist/umd/bases/base32.cjs"
+      }
+    },
+    "./bases/base58": {
+      "import": {
+        "types": "./dist/esm/bases/base58.d.mts",
+        "default": "./dist/esm/bases/base58.mjs"
+      },
+      "require": {
+        "types": "./dist/umd/bases/base58.d.cts",
+        "default": "./dist/umd/bases/base58.cjs"
+      }
+    },
+    "./hashes/digest": {
+      "import": {
+        "types": "./dist/esm/hashes/digest.d.mts",
+        "default": "./dist/esm/hashes/digest.mjs"
+      },
+      "require": {
+        "types": "./dist/umd/hashes/digest.d.cts",
+        "default": "./dist/umd/hashes/digest.cjs"
+      }
+    },
+    "./blake2b": {
+      "import": {
+        "types": "./dist/esm/blake2b.d.mts",
+        "default": "./dist/esm/blake2b.mjs"
+      },
+      "require": {
+        "types": "./dist/umd/blake2b.d.cts",
+        "default": "./dist/umd/blake2b.cjs"
+      }
+    },
+    "./blake2bstream": {
+      "import": {
+        "types": "./dist/esm/blake2bstream.d.mts",
+        "default": "./dist/esm/blake2bstream.mjs"
+      },
+      "require": {
+        "types": "./dist/umd/blake2bstream.d.cts",
+        "default": "./dist/umd/blake2bstream.cjs"
+      }
+    },
+    "./bytes": {
+      "import": {
+        "types": "./dist/esm/bytes.d.mts",
+        "default": "./dist/esm/bytes.mjs"
+      },
+      "require": {
+        "types": "./dist/umd/bytes.d.cts",
+        "default": "./dist/umd/bytes.cjs"
+      }
+    },
+    "./cid": {
+      "import": {
+        "types": "./dist/esm/cid.d.mts",
+        "default": "./dist/esm/cid.mjs"
+      },
+      "require": {
+        "types": "./dist/umd/cid.d.cts",
+        "default": "./dist/umd/cid.cjs"
+      }
+    },
+    "./hasher": {
+      "import": {
+        "types": "./dist/esm/hasher.d.mts",
+        "default": "./dist/esm/hasher.mjs"
+      },
+      "require": {
+        "types": "./dist/umd/hasher.d.cts",
+        "default": "./dist/umd/hasher.cjs"
+      }
+    },
+    "./varint": {
+      "import": {
+        "types": "./dist/esm/varint.d.mts",
+        "default": "./dist/esm/varint.mjs"
+      },
+      "require": {
+        "types": "./dist/umd/varint.d.cts",
+        "default": "./dist/umd/varint.cjs"
+      }
+    }
+  },
+  "scripts": {
+    "test": "node --import 'data:text/javascript,import { register } from \"node:module\"; import { pathToFileURL } from \"node:url\"; register(\"ts-node/esm\", pathToFileURL(\"./\"));' src/blake2bstream.test.ts",
+    "build:esm": "tsc --project tsconfig.json --declaration && node renameFiles.mjs esm",
+    "build:umd": "tsc --project tsconfig.umd.json --declaration && node renameFiles.mjs umd",
+    "build": "npm run build:esm && npm run build:umd",
+    "lint": "eslint",
+    "clean": "rm -f dist/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/okTurtles/chel-multiformats.git"
+  },
+  "author": "okTurtles Foundation, Inc.",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/okTurtles/chel-multiformats/issues"
+  },
+  "homepage": "https://github.com/okTurtles/chel-multiformats#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.21.0",
+    "eslint-config-standard": "^17.1.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  },
+  "eslintConfig": {
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "extends": [
+      "plugin:@typescript-eslint/recommended",
+      "standard"
+    ]
+  },
+  "eslintIgnore": [
+    "dist/*",
+    "node_modules/*",
+    "**/*.md"
+  ],
+  "dependencies": {
+    "blakejs": "^1.2.1"
+  }
+}
