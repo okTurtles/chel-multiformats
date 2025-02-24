@@ -1,5 +1,5 @@
 {
-  "name": "chel-multiformats",
+  "name": "@chelonia/multiformats",
   "version": "1.0.0",
   "description": "Interface for multihash, multicodec, multibase and CID (forked for Chelonia)",
   "main": "dist/umd/index.cjs",
